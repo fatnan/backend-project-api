@@ -57,6 +57,12 @@ class CartController extends Controller
     public function checkout(Request $request)
     {
         $carts = Cart::all();
+        if(count($carts) == 0){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'cart is empty'
+            ]);
+        }
         $products = [];
 
         foreach ($carts as $cart) {
