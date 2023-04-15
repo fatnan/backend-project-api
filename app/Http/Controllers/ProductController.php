@@ -71,11 +71,11 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request['id'] = $id;
         $validator = \Validator::make($request->all(), [
+            'id' => 'exists:products,_id',
             'name' => 'unique:products,name,'.$id.',_id',
             'price' => 'numeric'
-        ],[
-            'name.unique' => 'Name already exists'
         ]);
 
         if ($validator->fails()) {

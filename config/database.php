@@ -103,6 +103,14 @@ return [
             ]
         ],
 
+        'mongodb_2' => [
+            'driver' => 'mongodb',
+            'dsn' => env('DB_URI', ''),
+            'database' => env('DB_DATABASE','my_database'),
+            'username' => env('DB_USERNAME',''),
+            'password' => env('DB_PASSWORD','')
+        ],
+
     ],
 
     /*
